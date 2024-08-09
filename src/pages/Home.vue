@@ -70,7 +70,7 @@
                     </div>
                     <LineChart :labels="lineChart.labels" :data="lineChart.data" />
                     <PieChart :labels="pieChart.labels" :data="pieChart.data" :backgroundColors="pieChart.colors" />
-                    <p class="exp-piechart">* Este gráfico muestra la comparación de la cantidad de km² dedicados a tus diferentes áreas.</p>
+                    <p class="exp-piechart">* Expresado en km² sobre superficie total cultivada.</p>
                 </div>
             </template>
         </div>
