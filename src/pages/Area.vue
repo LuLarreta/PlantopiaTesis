@@ -1,11 +1,11 @@
 <template>
     <section class="h-screen">
         <div class="header-map">
-            <router-link to="/home" class="back-map">
-                <button class="btn-amarillo">
+            <div class="back-map">
+                <button class="btn-amarillo" @click="goHome">
                     <span class="material-symbols-sharp back-icon">arrow_back_ios</span>Atrás
                 </button>
-            </router-link>
+            </div>
             <div class="logo-map"><img src="/imgs/logo.png" alt="Logo Plantopia" class=""></div>
         </div>
         <div class="container px-4 mx-auto div-form fondo-blanco">
@@ -14,7 +14,7 @@
             </div>
             <div v-if="lastArea">
                 <p class="slogan-form">Área seleccionada <span> {{
-                    lastArea.areaKilometers.toFixed(3) }}
+                    lastArea.areaKilometros.toFixed(3) }}
                         km²</span></p>
                 <p class="mb-4 w-full text-white hidden">Coordenadas: {{ lastArea.poligons }}</p>
             </div>
@@ -59,7 +59,7 @@
                         </select>
                     </div>
                     <div v-if="errorMessage" class="error">{{ errorMessage }}</div>
-                    <button @click="preCalculate" class="btn-amarillo mb-6">Precalcular</button>
+                    <button @click.prevent="preCalculate" class="btn-amarillo mb-6">Precalcular</button>
                     <div>
                         <Notificacion v-if="showNotification" :type="notificationType" :message="notificationMessage" />
                     </div>
@@ -78,7 +78,7 @@ import BaseButton from '../components/BaseButton.vue';
 import Notificacion from '../components/Notificacion.vue';
 
 import { subscribeToAuth } from "./../service/auth.js";
-import { lastAreaById, addNewDataArea } from "./../service/area.js";
+import { lastAreaById, addNewDataArea, deleteArea } from "./../service/area.js";
 
 import router from '../router/router.js';
 
@@ -222,7 +222,7 @@ export default {
             }
         },
         preCalculate() {
-            const area = parseFloat(this.lastArea.areaKilometers);
+            const area = parseFloat(this.lastArea.areaKilometros);
             const weight = parseFloat(this.weightPerHarvest);
             const value = parseFloat(this.valuePerTon);
 
@@ -245,6 +245,12 @@ export default {
             this.showNotification = false;
             this.notificationType = '';
             this.notificationMessage = '';
+        },
+        async goHome() {
+            if (this.user.id && this.lastArea && this.lastArea.id) {
+                await deleteArea(this.user.id, this.lastArea.id);
+            }
+            router.push('/home');
         },
     },
 }

@@ -68,6 +68,6 @@ div {
     display: flex;
     justify-content: center;
     max-width: 600px;
-    padding-bottom: 90px;
+    padding-bottom: 10px;
 }
 </style>

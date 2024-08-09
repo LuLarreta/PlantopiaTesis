@@ -97,7 +97,7 @@ label.login {
 }
 
 input.login {
-  background-color: transparent;
+  background-color: #0e3646;
   border: none;
   border-bottom: 1px solid white;
   border-radius: 0;
@@ -455,4 +455,11 @@ button.gm-svpc {
   left: 50%;
   transform: translateX(-50%);
   padding: 25px 10px 15px;
+}
+
+.exp-piechart {
+  padding-bottom: 90px;
+  color: #8c8c8c;
+  font-size: 11px;
+  text-align: start;
 }

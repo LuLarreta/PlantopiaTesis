@@ -2,7 +2,7 @@
     <BaseH1 class="hidden">Ir a mapa</BaseH1>
     <div class="h-screen">
         <div class="header-map">
-            <router-link to="/home" class="back-map">
+            <router-link to="/user/areas" class="back-map">
                 <button class="btn-amarillo">
                     <span class="material-symbols-sharp back-icon">arrow_back_ios</span>Atrás
                 </button>

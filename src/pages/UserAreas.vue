@@ -47,8 +47,8 @@
                                 <button class="dropbtn rounded-full p-1"><span
                                         class="material-symbols-sharp">menu</span></button>
                                 <div class="dropdown-content">
-                                    <a @click="goToHarvest(area.id, area.areaKilometers)">Editar</a>
-                                    <a @click="goToMap(area.poligons, area.id, area.areaColor)">Ver</a>
+                                    <a @click="goToHarvest(area.id, area.areaKilometers)">Editar datos</a>
+                                    <a @click="goToMap(area.poligons, area.id, area.areaColor)">Editar área</a>
                                     <a @click="delArea(this.user.id, area.id)">Eliminar</a>
                                 </div>
                             </div>
